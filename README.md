@@ -1,4 +1,4 @@
-# Vet clinic Database
+# Vet Clinic Database
 
 > A relational database to store animals' information
 
