@@ -2,11 +2,11 @@
 --=# CREATE DATABASE vet_clinic;
 -- =# UPDATE animals SET id = 2 WHERE name = 'Gabumon';
 CREATE TABLE animals (
-    id                int NOT NULL,
-    name              varchar(100) NOT NULL,
-    date_of_birth     date,
-    escape_attempts   integer,
-    neutered          boolean,
-    weight_kg         decimal(5,2)
+    id                INT GENERATED ALWAYS AS IDENTITY,
+    name              varchar(100),
+    date_of_birth     DATE,
+    escape_attempts   INT,
+    neutered          BOOLEAN,
+    weight_kg         decimal(5,2),
+    PRIMARY KEY (id)
 );
-
