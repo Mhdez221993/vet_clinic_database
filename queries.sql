@@ -15,4 +15,4 @@ SELECT * FROM animals WHERE neutered IS TRUE;
 SELECT * FROM animals WHERE name != 'Gabumon';
 SELECT * FROM animals WHERE name NOT LIKE 'Gabumon';
 
-SELECT name FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
+SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
