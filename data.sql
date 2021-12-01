@@ -35,8 +35,8 @@ INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) 
 -- update animals table
 INSERT INTO animals (name, date_of_birth, weight_kg, neutered, escape_attempts) VALUES (
   'Charmander',
-  'Feb 8th, 2020',
-  11,
+  'Feb 8, 2020',
+  -11,
   false,
   0
 );
