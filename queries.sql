@@ -1,5 +1,4 @@
 /*Queries that provide answers to the questions from all projects.*/
-
 SELECT * FROM animals where name like '%mon%';
 
 SELECT name FROM animals WHERE EXTRACT(year FROM date_of_birth) BETWEEN 2016 AND 2019;
@@ -40,6 +39,7 @@ ROLLBACK TO SAVEPOINT delete_date;
 UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 COMMIT;
 
+-- Write queries to answer some questions
 SELECT COUNT(*) FROM animals;
 SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
 SELECT AVG(weight_kg) FROM animals;
