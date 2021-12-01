@@ -9,4 +9,5 @@ CREATE TABLE animals (
     PRIMARY KEY (id)
 );
 
+-- Add a column species
 ALTER TABLE animals ADD species varchar(100);
