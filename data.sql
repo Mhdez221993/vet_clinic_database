@@ -110,3 +110,44 @@ UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob') WH
 UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond') WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
 UPDATE animals SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester') WHERE name IN ('Angemon', 'Boarmon');
 COMMIT;
+
+-- Vet clinic database: add "join table" for visits
+BEGIN;
+INSERT INTO vets (name, age, date_of_graduation) VALUES
+  ('William Tatcher', 45, 'Apr 23rd, 2000'),
+  ('Maisy Smith', 26, 'Jan 17th, 2019'),
+  ('Stephanie Mendez', 64, 'May 4th, 1981'),
+  ('Jack Harkness', 38, 'Jun 8th, 2008');
+COMMIT;
+
+BEGIN;
+INSERT INTO specializations (vets_id, species_id) VALUES
+  (1, 1),
+  (3, 1),
+  (3, 2),
+  (4, 2),
+COMMIT;
+
+BEGIN;
+INSERT INTO visits (animals_id, vets_id, visit_date) VALUES
+  (1  1 'May 24th, 2020'),
+  (1  3 'Jul 22th, 2020'),
+  (2  4 'Feb 2nd, 2021'),
+  (3  2 'Jan 5th, 2020'),
+  (3  2 'Mar 8th, 2020'),
+  (3  2 'May 14th, 2020'),
+  (4  3 'May 4th, 2021'),
+  (5  4 'Feb 24th, 2021'),
+  (6  2 'Dec 21st, 2019'),
+  (6  1 'Aug 10th, 2020'),
+  (6  2 'Apr 7th, 2021'),
+  (7  3 'Sep 29th, 2019'),
+  (8  4 'Oct 3rd, 2020'),
+  (8  4 'Nov 4th, 2020'),
+  (9  2 'Jan 24th, 2019'),
+  (9  2 'May 15th, 2019'),
+  (9  2 'Feb 27th, 2020'),
+  (9  2 'Aug 3rd, 2020'),
+  (10  3 'May 24th, 2020'),
+  (10  1 'Jan 11th, 2021')
+COMMIT;
