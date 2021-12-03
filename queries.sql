@@ -46,3 +46,41 @@ SELECT AVG(weight_kg) FROM animals;
 SELECT neutered, MAX(escape_attempts) FROM animals GROUP BY neutered;
 SELECT neutered, MIN(weight_kg), MAX(weight_kg) FROM animals GROUP BY neutered;
 SELECT neutered, AVG(escape_attempts) FROM animals WHERE EXTRACT(year FROM date_of_birth) BETWEEN 1990 AND 2000 GROUP BY neutered;
+
+-- Vet clinic database: query multiple tables
+SELECT animals.name, owners.full_name FROM animals
+  INNER JOIN owners
+  ON animals.owner_id = owners.id
+  WHERE owners.full_name = 'Melody Pond';
+
+SELECT animals.name, species.name FROM animals
+  INNER JOIN species
+  ON animals.species_id = species.id
+  AND species.name = 'Pokemon';
+
+SELECT owners.full_name, animals.name FROM owners
+  LEFT JOIN animals
+  ON animals.owner_id = owners.id;
+
+SELECT species.name, COUNT(*) FROM animals
+  FULL OUTER JOIN species
+  ON animals.species_id = species.id
+  GROUP BY species.id;
+
+SELECT animals.name, species.name FROM animals
+  JOIN owners
+  ON animals.owner_id = owners.id
+  JOIN species ON species.id = animals.species_id
+  WHERE owners.full_name = 'Jennifer Orwell'
+  AND species.name = 'Digimon';
+
+SELECT animals.name, animals.escape_attempts FROM animals
+  JOIN owners
+  ON animals.owner_id = owners.id
+  WHERE owners.full_name = 'Dean Winchester'
+  AND animals.escape_attempts = 0;
+
+SELECT owners.full_name, COUNT(owners.id) FROM animals
+  FULl OUTER JOIN owners
+  ON animals.owner_id = owners.id
+  GROUP BY owners.id;
