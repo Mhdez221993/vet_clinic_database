@@ -41,18 +41,19 @@ CREATE TABLE vets (
 );
 
 CREATE TABLE specializations (
-    species_id  INT NOT NULL,
-    vets_id     INT NOT NULL,
-    FOREIGN KEY (species_id) REFERENCES species(id) ON DELETE CASCADE,
-    FOREIGN KEY (vets_id) REFERENCES vets(id) ON DELETE CASCADE,
-    UNIQUE (species_id, vets_id)
+    vets_id     INT,
+    species_id  INT,
+    FOREIGN KEY (species_id) REFERENCES species(id),
+    FOREIGN KEY (vets_id) REFERENCES vets(id),
+    PRIMARY KEY(species_id, vets_id)
 );
 
 CREATE TABLE visits (
-    animals_id  INT NOT NULL,
-    vets_id     INT NOT NULL,
+    id          INT GENERATED ALWAYS AS IDENTITY,
+    animals_id  INT,
+    vets_id     INT,
     visit_date  DATE,
-    FOREIGN KEY (animals_id) REFERENCES animals(id) ON DELETE CASCADE,
-    FOREIGN KEY (vets_id) REFERENCES vets(id) ON DELETE CASCADE,
-    UNIQUE (animals_id, vets_id)
+    FOREIGN KEY (animals_id) REFERENCES animals(id),
+    FOREIGN KEY (vets_id) REFERENCES vets(id),
+    PRIMARY KEY(id)
 );
