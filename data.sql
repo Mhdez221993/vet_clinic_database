@@ -119,12 +119,24 @@ COMMIT;
 
 BEGIN;
 
-INSERT INTO specializations (vets_id, species_id)
+INSERT INTO specializations (vet_id, species_id)
   VALUES
-    (1, 1),
-    (3, 1),
-    (3, 2),
-    (4, 2),
+    (
+      (SELECT id FROM vets WHERE name = 'William Tatcher'),
+      (SELECT id FROM species WHERE name = 'Pokemon')
+    ),
+    (
+      (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+      (SELECT id FROM species WHERE name = 'Pokemon')
+    ),
+    (
+      (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+      (SELECT id FROM species WHERE name = 'Digimon')
+    ),
+    (
+      (SELECT id FROM vets WHERE name = 'Jack Harkness'),
+      (SELECT id FROM species WHERE name = 'Digimon')
+    );
 
 COMMIT;
 
@@ -152,27 +164,92 @@ COMMIT;
 
 BEGIN;
 
-INSERT INTO visits (animals_id, vets_id, visit_date)
+INSERT INTO visits (animal_id, vet_id, visit_date)
   VALUES
-    (1  1 'May 24th, 2020'),
-    (1  3 'Jul 22th, 2020'),
-    (2  4 'Feb 2nd, 2021'),
-    (3  2 'Jan 5th, 2020'),
-    (3  2 'Mar 8th, 2020'),
-    (3  2 'May 14th, 2020'),
-    (4  3 'May 4th, 2021'),
-    (5  4 'Feb 24th, 2021'),
-    (6  2 'Dec 21st, 2019'),
-    (6  1 'Aug 10th, 2020'),
-    (6  2 'Apr 7th, 2021'),
-    (7  3 'Sep 29th, 2019'),
-    (8  4 'Oct 3rd, 2020'),
-    (8  4 'Nov 4th, 2020'),
-    (9  2 'Jan 24th, 2019'),
-    (9  2 'May 15th, 2019'),
-    (9  2 'Feb 27th, 2020'),
-    (9  2 'Aug 3rd, 2020'),
-    (10  3 'May 24th, 2020'),
-    (10  1 'Jan 11th, 2021')
+    (
+      (SELECT id FROM animals WHERE name = 'Agumon'),
+      (SELECT id FROM vets WHERE name = 'William Tatcher'),
+      'May 24, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Agumon'),
+      (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+      'Jul 22, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Gabumon'),
+      (SELECT id FROM vets WHERE name = 'Jack Harkness'),
+      'Feb 2, 2021'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Pikachu'),
+      (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+      'Jan 5, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Pikachu'),
+      (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+      'Mar 8, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Pikachu'),
+      (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+      'May 14, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Devimon'),
+      (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+      'May 4, 2021'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Charmander'),
+      (SELECT id FROM vets WHERE name = 'Jack Harkness'),
+      'Feb 24, 2021'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Squirtle'),
+      (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+      'Sep 29, 2019'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Angemon'),
+      (SELECT id FROM vets WHERE name = 'Jack Harkness'),
+      'Oct 3, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Angemon'),
+      (SELECT id FROM vets WHERE name = 'Jack Harkness'),
+      'Nov 4, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Boarmon'),
+      (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+      'Jan 24, 2019'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Boarmon'),
+      (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+      'May 15, 2019'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Boarmon'),
+      (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+      'Feb 27, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Boarmon'),
+      (SELECT id FROM vets WHERE name = 'Maisy Smith'),
+      'Aug 3, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Blossom'),
+      (SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+      'May 24, 2020'
+    ),
+    (
+      (SELECT id FROM animals WHERE name = 'Blossom'),
+      (SELECT id FROM vets WHERE name = 'William Tatcher'),
+      'Jan 11, 2021'
+    );
 
 COMMIT;
