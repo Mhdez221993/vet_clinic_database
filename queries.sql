@@ -3,7 +3,7 @@ SELECT * FROM animals where name like '%mon%';
 
 SELECT name FROM animals WHERE EXTRACT(year FROM date_of_birth) BETWEEN 2016 AND 2019;
 
-SELECT name FROM animals WHERE neutered Is TRUE AND escape_attempts < 3;
+SELECT name FROM animals WHERE neutered AND escape_attempts < 3;
 
 SELECT date_of_birth FROM animals WHERE name IN ('Agumon', 'Pikachu');
 
