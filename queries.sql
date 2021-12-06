@@ -129,15 +129,18 @@ SELECT AVG(weight_kg) FROM animals;
 
 -- Who escapes the most, neutered or not neutered animals?
 
-SELECT neutered, MAX(escape_attempts)
+SELECT neutered, SUM(escape_attempts)
   FROM animals
-  GROUP BY neutered;
+  GROUP BY neutered
+  ORDER BY SUM
+  DESC
+  LIMIT 1;
 
 -- What is the minimum and maximum weight of each type of animal?
 
 SELECT neutered, MIN(weight_kg), MAX(weight_kg)
   FROM animals
-    GROUP BY neutered;
+    GROUP BY species;
 
 -- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 
@@ -146,7 +149,7 @@ SELECT neutered, AVG(escape_attempts)
     WHERE EXTRACT(year FROM date_of_birth)
     BETWEEN 1990
     AND 2000
-    GROUP BY neutered;
+    GROUP BY species;
 
 -- What animals belong to Melody Pond?
 
