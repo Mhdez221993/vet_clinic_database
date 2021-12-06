@@ -132,7 +132,7 @@ UPDATE animals
 UPDATE animals
   SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob')
   WHERE name
-  IN ('Devimon', 'Plantmon');
+  IN ('Devimon', 'Plantmon'); -- Plantmon was deleted on milestone 2
 
 UPDATE animals
   SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
