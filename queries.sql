@@ -153,62 +153,64 @@ SELECT neutered, AVG(escape_attempts)
 
 -- What animals belong to Melody Pond?
 
-SELECT animals.name, owners.full_name
+SELECT name, full_name
   FROM animals
-    INNER JOIN owners
-    ON animals.owner_id = owners.id
-    WHERE owners.full_name = 'Melody Pond';
+    JOIN owners
+      ON animals.owner_id = owners.id
+    WHERE full_name = 'Melody Pond';
 
 -- List of all animals that are pokemon (their type is Pokemon).
 
 SELECT animals.name, species.name
   FROM animals
-    INNER JOIN species
-    ON animals.species_id = species.id
-    AND species.name = 'Pokemon';
+    JOIN species
+      ON animals.species_id = species.id
+    WHERE species.name = 'Pokemon';
 
 -- List all owners and their animals, remember to include those that don't own any animal.
 
 SELECT owners.full_name, animals.name
   FROM owners
-    LEFT JOIN animals
-    ON animals.owner_id = owners.id;
+    FULL JOIN animals
+      ON animals.owner_id = owners.id;
 
 -- How many animals are there per species?
 
 SELECT species.name, COUNT(*)
   FROM animals
-    FULL OUTER JOIN species
-    ON animals.species_id = species.id
-    GROUP BY species.id;
+    JOIN species
+      ON species_id = species.id
+    GROUP BY species.name;
 
 -- List all Digimon owned by Jennifer Orwell.
 
 SELECT animals.name, species.name
   FROM animals
     JOIN owners
-    ON animals.owner_id = owners.id
+    ON owner_id = owners.id
     JOIN species
-    ON species.id = animals.species_id
-    WHERE owners.full_name = 'Jennifer Orwell'
+    ON species.id = species_id
+    WHERE full_name = 'Jennifer Orwell'
     AND species.name = 'Digimon';
 
 -- List all animals owned by Dean Winchester that haven't tried to escape.
 
-SELECT animals.name, animals.escape_attempts
+SELECT animals.name, escape_attempts
   FROM animals
     JOIN owners
-    ON animals.owner_id = owners.id
-    WHERE owners.full_name = 'Dean Winchester'
-    AND animals.escape_attempts = 0;
+    ON owner_id = owners.id
+    WHERE full_name = 'Dean Winchester'
+    AND escape_attempts = 0;
 
 -- Who owns the most animals?
 
-SELECT owners.full_name, COUNT(owners.id)
+SELECT full_name, COUNT(*)
   FROM animals
-    FULl OUTER JOIN owners
-    ON animals.owner_id = owners.id
-    GROUP BY owners.id;
+    JOIN owners
+      ON owner_id = owners.id
+    GROUP BY full_name
+    ORDER BY COUNT DESC
+    LIMIT 1;
 
 -- Who was the last animal seen by William Tatcher?
 
