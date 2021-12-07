@@ -280,12 +280,12 @@ SELECT animals.name, visit_date, vets.name
 -- Details for most recent visit: animal information, vet information, and date of visit.
 
 SELECT * FROM visits
-    INNER JOIN vets
-    ON vets.id = visits.vets_id
-    INNER JOIN animals
-    ON animals.id = visits.animals_id
-    ORDER BY visits.visit_date
-    DESC LIMIT 1;
+    JOIN vets
+      ON vets.id = vet_id
+    JOIN animals
+      ON animals.id = animal_id
+    ORDER BY visit_date DESC
+    LIMIT 1;
 
 -- How many visits were with a vet that did not specialize in that animal's species?
 
