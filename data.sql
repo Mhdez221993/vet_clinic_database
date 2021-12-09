@@ -164,7 +164,7 @@ COMMIT;
 
 BEGIN;
 
-INSERT INTO visits (animal_id, vet_id, visit_date)
+INSERT INTO visits (animal_id, vet_id, date_of_visit)
   VALUES
     (
       (SELECT id FROM animals WHERE name = 'Agumon'),

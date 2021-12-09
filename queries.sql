@@ -214,13 +214,13 @@ SELECT full_name, COUNT(*)
 
 -- Who was the last animal seen by William Tatcher?
 
-SELECT animals.name, visit_date FROM animals
+SELECT animals.name, date_of_visit FROM animals
   JOIN visits
     ON animal_id = animals.id
   JOIN vets
     ON vet_id = vets.id
   WHERE vets.name = 'William Tatcher'
-  ORDER BY visit_date DESC
+  ORDER BY date_of_visit DESC
   LIMIT 1;
 
 -- How many different animals did Stephanie Mendez see?
@@ -243,14 +243,14 @@ SELECT vets.name, species.name
 
 -- List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
 
-SELECT animals.name, visit_date
+SELECT animals.name, date_of_visit
   FROM visits
     JOIN vets
       ON vet_id = vets.id
     JOIN animals
       ON animals.id = animal_id
     WHERE vets.name = 'Stephanie Mendez'
-    AND visit_date
+    AND date_of_visit
     BETWEEN 'Apr 1, 2020'
     AND 'Aug 30, 2020';
 
@@ -266,7 +266,7 @@ SELECT animals.name, COUNT(animal_id)
 
 -- Who was Maisy Smith's first visit?
 
-SELECT animals.name, visit_date, vets.name
+SELECT animals.name, date_of_visit, vets.name
   AS first_visit
   FROM visits
     JOIN vets
@@ -274,7 +274,7 @@ SELECT animals.name, visit_date, vets.name
     JOIN animals
       ON animal_id = animals.id
     WHERE vets.name = 'Maisy Smith'
-    ORDER BY visit_date
+    ORDER BY date_of_visit
     LIMIT 1;
 
 -- Details for most recent visit: animal information, vet information, and date of visit.
@@ -284,7 +284,7 @@ SELECT * FROM visits
       ON vets.id = vet_id
     JOIN animals
       ON animals.id = animal_id
-    ORDER BY visit_date DESC
+    ORDER BY date_of_visit DESC
     LIMIT 1;
 
 -- How many visits were with a vet that did not specialize in that animal's species?
@@ -308,7 +308,8 @@ SELECT species.name, COUNT(visits.animal_id)
       ON species.id = animals.species_id
     WHERE vets.name = 'Maisy Smith'
     GROUP BY species.name
-    ORDER BY species_count DESC LIMIT 1;
+    ORDER BY species_count
+    DESC LIMIT 1;
 
 explain analyze SELECT COUNT(*) FROM visits where vet_id = 3;
 
