@@ -28,7 +28,7 @@ CREATE TABLE invoice_items (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE invoice (
+CREATE TABLE invoices (
     id INT GENERATED ALWAYS AS IDENTITY,
     total_amount decimal(10, 2),
     generated_at int,
@@ -41,3 +41,8 @@ ALTER TABLE
     medical_histories
 ADD
     FOREIGN KEY patient_id REFERENCES patients(id);
+
+ALTER TABLE
+    invoices
+ADD
+    FOREIGN KEY medical_history_id REFERENCES medical_histories(id);
