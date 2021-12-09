@@ -46,6 +46,15 @@ CREATE TABLE invoices (
     PRIMARY KEY (id)
 );
 
+--Create a "join table" to handle many-to-many relationship between treatments and medical_histories
+CREATE TABLE illnesses (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    treatment_id INT,
+    medical_history_id INT,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_treament FOREIGN KEY (treatment_id) REFERENCES treatments,
+    CONSTRAINT fk_medical_history FOREIGN KEY (medical_history_id) REFERENCES medical_histories
+)
 
 ALTER TABLE medical_histories ADD FOREIGN KEY patient_id REFERENCES patients(id);
 
@@ -54,3 +63,4 @@ ALTER TABLE invoices ADD FOREIGN KEY medical_history_id REFERENCES medical_histo
 ALTER TABLE invoice_items ADD FOREIGN KEY invoice_id REFERENCES invoice_id(id);
 
 ALTER TABLE invoice_items ADD FOREIGN KEY treatment_id REFERENCES treatments(id);
+
