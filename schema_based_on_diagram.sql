@@ -31,11 +31,21 @@ CREATE TABLE invoice_items (
 CREATE TABLE invoices (
     id INT GENERATED ALWAYS AS IDENTITY,
     total_amount decimal(10, 2),
-    generated_at int,
+    generated_at timestamp,
     payed_at timestamp,
     medical_history_id int,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE invoices (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    total_amount decimal(10, 2),
+    generated_at timestamp,
+    payed_at timestamp,
+    medical_history_id int,
+    PRIMARY KEY (id)
+);
+
 
 ALTER TABLE medical_histories ADD FOREIGN KEY patient_id REFERENCES patients(id);
 
