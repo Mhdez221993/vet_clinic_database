@@ -310,3 +310,9 @@ SELECT species.name, COUNT(visits.animal_id)
     GROUP BY species.name
     ORDER BY species_count
     DESC LIMIT 1;
+
+explain analyze SELECT COUNT(*) FROM visits where vet_id = 3;
+
+explain analyze SELECT COUNT(*) FROM owners where full_name = 'Melody Pond';
+
+explain analyze SELECT COUNT(*) FROM owners where email = 'owner_1372@mail.com';
