@@ -19,6 +19,12 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@MoisesH42060050](https://twitter.com/MoisesH42060050)
 - LinkedIn: [moises-hdez-coronado](https://www.linkedin.com/in/moises-hdez-coronado/)
 
+👤 **Author2**
+
+- GitHub: [@wuyepabdul](https://github.com/wuyepabdul)
+- Twitter: [@AbdulWuyep](https://twitter.com/AbdulWuyep)
+- LinkedIn: [Abdul Wuyep](https://www.linkedin.com/in/abdul-wuyep/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
