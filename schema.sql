@@ -73,10 +73,10 @@ CREATE TABLE specializations (
 );
 
 CREATE TABLE visits (
+    id INT GENERATED ALWAYS AS IDENTITY,
     vet_id     INT,
     animal_id  INT,
-    visit_date  DATE,
-    PRIMARY KEY (vet_id, animal_id, visit_date),
+    date_of_visit  DATE,
     CONSTRAINT fk_vet
         FOREIGN KEY (vet_id)
         REFERENCES vets (id)
@@ -88,3 +88,14 @@ CREATE TABLE visits (
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX animal_id_idx ON visits(animal_id);
+
+CREATE INDEX vet_id_idx ON visits(vet_id);
+
+CREATE INDEX owners_full_name_idx ON owners(full_name);
+
+CREATE INDEX owners_email_idx ON owners(email);
