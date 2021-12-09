@@ -2,6 +2,7 @@
 
 > A relational database to store animals' information
 
+![diagram](./diagrams.png)
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
