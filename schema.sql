@@ -88,3 +88,6 @@ CREATE TABLE visits (
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
