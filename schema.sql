@@ -89,3 +89,9 @@ CREATE TABLE visits (
         ON DELETE CASCADE
 );
 
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+
+CREATE INDEX visites_animals_id ON visits(animals_id);
+CREATE INDEX visits_vets_id ON visits(vets_id);
+CREATE INDEX owners_email ON owners(email DESC);

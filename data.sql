@@ -253,3 +253,5 @@ INSERT INTO visits (animal_id, vet_id, date_of_visit)
     );
 
 COMMIT;
+
+
