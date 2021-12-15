@@ -2,6 +2,8 @@
 
 > A relational database to store animals' information
 
+![ERD](./ERD.png)
+
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
