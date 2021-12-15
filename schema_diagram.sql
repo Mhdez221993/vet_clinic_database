@@ -25,3 +25,26 @@ CREATE TABLE "invoice_items"(
     "invoice_id"    VARCHAR INTEGER NOT NULL,
     "treatment_id"  VARCHAR INTEGER NOT NULL
 );
+
+CREATE TABLE "invoices"(
+    "id" INTEGER NOT NULL,
+    "total_amount" DECIMAL(8, 2) NOT NULL,
+    "generated_at" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+    "payed_at" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+    "medical_history_id" INTEGER NOT NULL
+);
+
+ALTER TABLE
+    "medical_histories" ADD PRIMARY KEY("id");
+
+ALTER TABLE
+    "patients" ADD PRIMARY KEY("id");
+
+ALTER TABLE
+    "treatments" ADD PRIMARY KEY("id");
+
+ALTER TABLE
+    "invoice_items" ADD PRIMARY KEY("id");
+
+ALTER TABLE
+    "invoices" ADD PRIMARY KEY("id");
