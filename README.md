@@ -2,6 +2,8 @@
 
 > A relational database to store animals' information
 
+![ERD](./ERD.png)
+
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
@@ -19,6 +21,10 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@MoisesH42060050](https://twitter.com/MoisesH42060050)
 - LinkedIn: [moises-hdez-coronado](https://www.linkedin.com/in/moises-hdez-coronado/)
 
+👤 **Leandro Barreto**
+
+- GitHub: [@Leandro-Barretoo](https://github.com/Leandro-Barretoo)
+- LinkedIn: [Leandro Barreto](https://linkedin.com/in/leandroobarreto/)
 
 :bearded_person: **Author2** **Hector**
   - GitHub: [@githubhandle](https://github.com/Hector096)
